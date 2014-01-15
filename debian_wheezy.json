@@ -1,0 +1,21 @@
+{
+    "description": "A simple host to ssh into based on Debian Wheezy (amd64). DigitalOcean defaults: 'Amsterdam 2' region and 512 MB droplet.",
+    "variables": {
+        "do_api_key": "",
+        "do_client_id": "",
+        "do_region_id": "5",
+        "do_size_id": "66",
+        "hostname": "",
+        "user": "",
+        "password": ""
+    },
+    "builders": [{
+            "type": "digitalocean",
+            "client_id": "{{user `do_client_id`}}",
+            "api_key": "{{user `do_api_key`}}",
+            "image_id": "308287",
+            "region_id": "{{user `do_region_id`}}",
+            "droplet_name": "{{user `hostname`}}",
+            "ssh_username": "{{user `user`}}"
+        }]
+}
